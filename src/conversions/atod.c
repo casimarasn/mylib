@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   atod.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msedeno- <msedeno-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: msedeno- <msedeno-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 14:28:11 by casimarasn        #+#    #+#             */
-/*   Updated: 2026/02/12 15:29:13 by msedeno-         ###   ########.fr       */
+/*   Updated: 2026/02/14 14:28:09 by msedeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-const char	*skip_ws_sign(const char *s, int *sign)
+static const char	*skip_ws_sign(const char *s, int *sign)
 {
 	*sign = 1;
 	while (ft_isspace(*s))
@@ -31,7 +31,7 @@ const char	*skip_ws_sign(const char *s, int *sign)
 	return (s);
 }
 
-double	parse_fraction(const char *s, t_atod *atod)
+static double	parse_fraction(const char *s, t_atod *atod)
 {
 	atod->frac = 0.0;
 	atod->base = 1.0;

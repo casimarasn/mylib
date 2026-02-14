@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msedeno- <msedeno-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: msedeno- <msedeno-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/24 19:48:04 by msedeno-          #+#    #+#             */
-/*   Updated: 2026/02/12 15:29:40 by msedeno-         ###   ########.fr       */
+/*   Updated: 2026/02/14 14:16:11 by msedeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static char	*ft_free_memory(char *buffer, char *stash)
 	return (NULL);
 }
 
-char	*ft_read_file(int fd, char *stash)
+static char	*ft_read_file(int fd, char *stash)
 {
 	ssize_t	bytes;
 	char	*buffer;
@@ -46,7 +46,7 @@ char	*ft_read_file(int fd, char *stash)
 	return (stash);
 }
 
-char	*ft_reset_line(char *stash)
+static char	*ft_reset_line(char *stash)
 {
 	int		i;
 	char	*aux;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msedeno- <msedeno-@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: msedeno- <msedeno-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:06:10 by msedeno-          #+#    #+#             */
-/*   Updated: 2026/02/12 16:01:06 by msedeno-         ###   ########.fr       */
+/*   Updated: 2026/02/14 14:29:27 by msedeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ typedef struct s_atod
 	const char	*paki;
 	int			point;
 }				t_atod;
+
+/* ========================================================================== */
+/*                                 FUNCTIONS                                  */
+/* ========================================================================== */
 
 /* ========================================== */
 /*               CHARACTER TYPE               */
@@ -88,55 +92,58 @@ char		**ft_split(char const *s, char c);
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
 
-
+/* ========================================== */
+/*               CONVERSIONS                  */
+/* ========================================== */
 int			ft_atoi(const char *str);
 int			ft_atoi_strict(const char *str, long *num);
 char		*ft_itoa(int n);
+double		ft_atod(const char *s, t_atod *atod);
 
+/* ========================================== */
+/*               MATH                         */
+/* ========================================== */
+int			ft_abs(int n);
+void		sort_int_array(int *arr, int size);
 
-
-
-
-void		ft_lstadd_back(t_list **lst, t_list *new);
-void		ft_lstadd_front(t_list **lst, t_list *new);
-void		ft_lstclear(t_list **lst, void (*del)(void*));
-void		ft_lstdelone(t_list *lst, void (*del)(void*));
-void		ft_lstiter(t_list *lst, void (*f)(void*));
-t_list		*ft_lstlast(t_list *lst);
-t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del) (void *));
-t_list		*ft_lstnew(void *content);
-int			ft_lstsize(t_list *lst);
-
-
-
-int			ft_print_char(char c);
-int			ft_print_format(va_list args, char c);
-int			ft_print_hexdecma(unsigned long long n);
-int			ft_print_hexdecmi(unsigned long long int n);
-int			ft_print_nbr(int n);
-int			ft_print_percent(void);
-int			ft_print_pointer(void *str);
-int			ft_print_string(char *str);
-int			ft_print_unsigned(unsigned int n);
-int			ft_printf(char const *format, ...);
-
+/* ========================================== */
+/*               PUT (Output FD)              */
+/* ========================================== */
 void		ft_putchar_fd(char c, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 void		ft_putstr_fd(char *s, int fd);
 
-// ./ft_split.c
-void		sort_int_array(int *arr, int size);
+/* ========================================== */
+/*               LISTS                        */
+/* ========================================== */
+t_list		*ft_lstnew(void *content);
+void		ft_lstadd_front(t_list **lst, t_list *new);
+int			ft_lstsize(t_list *lst);
+t_list		*ft_lstlast(t_list *lst);
+void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_lstdelone(t_list *lst, void (*del)(void*));
+void		ft_lstclear(t_list **lst, void (*del)(void*));
+void		ft_lstiter(t_list *lst, void (*f)(void*));
+t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del) (void *));
 
+/* ========================================== */
+/*               GNL (Get Next Line)          */
+/* ========================================== */
+char		*get_next_line(int fd);
 
-
-// ./ft_tolower.c
-
-int			ft_abs(int n);
-
-// ./atod.c
-const char	*skip_ws_sign(const char *s, int *sign);
-double		parse_fraction(const char *s, t_atod *atod);
-double		ft_atod(const char *s, t_atod *atod);
+/* ========================================== */
+/*               PRINTF                       */
+/* ========================================== */
+int			ft_printf(char const *format, ...);
+int			ft_print_char(char c);
+int			ft_print_string(char *str);
+int			ft_print_nbr(int n);
+int			ft_print_unsigned(unsigned int n);
+int			ft_print_hexdecmi(unsigned long long int n);
+int			ft_print_hexdecma(unsigned long long n);
+int			ft_print_pointer(void *str);
+int			ft_print_percent(void);
+int			ft_print_format(va_list args, char c);
 
 #endif
