@@ -6,7 +6,7 @@
 #    By: msedeno- <msedeno-@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:54:30 by msedeno-          #+#    #+#              #
-#    Updated: 2026/02/14 14:45:02 by msedeno-         ###   ########.fr        #
+#    Updated: 2026/02/17 00:12:05 by msedeno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ SRC_LISTS = lists/ft_lstadd_back.c lists/ft_lstadd_front.c lists/ft_lstclear.c \
 			lists/ft_lstmap.c lists/ft_lstnew.c lists/ft_lstsize.c
 
 # Math
-SRC_MATH = math/ft_abs.c math/sort_int_array.c
+SRC_MATH = math/ft_abs.c math/sort_int_array.c math/ft_range.c
 
 # Memory
 SRC_MEM = mem/ft_bzero.c mem/ft_calloc.c mem/ft_memchr.c \
@@ -65,7 +65,8 @@ SRC_STR = string/ft_split.c string/ft_strchr.c string/ft_strdup.c \
 			string/ft_striteri.c string/ft_strjoin.c string/ft_strjoin_space.c \
 			string/ft_strlcat.c string/ft_strlcpy.c string/ft_strlen.c \
 			string/ft_strmapi.c string/ft_strncmp.c string/ft_strnstr.c \
-			string/ft_strrchr.c string/ft_strtrim.c string/ft_substr.c
+			string/ft_strrchr.c string/ft_strtrim.c string/ft_substr.c \
+			string/ft_strpbrk.c
 
 # Concatenate all sources
 SRCS = $(addprefix $(SRC_DIR)/, \

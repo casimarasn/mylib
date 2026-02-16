@@ -6,7 +6,7 @@
 /*   By: msedeno- <msedeno-@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:06:10 by msedeno-          #+#    #+#             */
-/*   Updated: 2026/02/14 22:12:50 by msedeno-         ###   ########.fr       */
+/*   Updated: 2026/02/17 00:23:28 by msedeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,6 +234,19 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char));
  * passing its index as the first argument.
  */
 void		ft_striteri(char *s, void (*f)(unsigned int, char *));
+/**
+ * @brief Locate the first occurrence in string s of any character in accept.
+ * 
+ * This function scans the string 's' for the first character that matches 
+ * any character specified in the string 'accept'. It is particularly useful 
+ * for parsing strings or finding delimiters in a set of characters.
+ * @param s1 The null-terminated string to be scanned.
+ * @param s2 The null-terminated string containing the characters to match.
+ * @return char* A pointer to the character in 's' that matches one of the 
+ * characters in 'accept', or NULL if no such character is found.
+ */
+char		*ft_strpbrk(const char *s1, const char *s2);
+
 
 /* ========================================== */
 /*               CONVERSIONS                  */
@@ -262,6 +275,21 @@ char		*ft_itoa(int n);
  */
 double		ft_atod(const char *s, t_atod *atod);
 
+/**
+ * @brief Converts an integer to a null-terminated string in a specific base.
+ *
+ * This function handles the conversion of an integer 'n' into its string 
+ * representation using a provided 'base' string (e.g., "0123456789ABCDEF" 
+ * for hexadecimal). It handles negative numbers if the base is 10.
+ *
+ * @param n     The integer to convert.
+ * @param base  The string containing the characters of the target base.
+ * @return      A pointer to the newly allocated string,
+ * or NULL if allocation fails.
+ */
+char		*ft_itoa_base(int n, const char *base);
+
+
 /* ========================================== */
 /*               MATH                         */
 /* ========================================== */
@@ -275,6 +303,20 @@ int			ft_abs(int n);
  * @brief Sorts an array of integers in ascending order.
  */
 void		sort_int_array(int *arr, int size);
+
+/**
+ * @brief Allocates and fills an array of integers with a range of values.
+ * 
+ * This function creates a dynamically allocated array of integers containing 
+ * all values between 'min' (inclusive) and 'max' (exclusive). If 'min' is 
+ * greater than or equal to 'max', the function returns NULL.
+ * @param start The starting value of the range (included).
+ * @param end The ending value of the range (excluded).
+ * @return int* A pointer to the newly allocated integer array, 
+ * or NULL if the allocation fails or if min >= max.
+ */
+int			*ft_range(int start, int end);
+
 
 /* ========================================== */
 /*               PUT (Output FD)              */
