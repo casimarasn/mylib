@@ -6,10 +6,11 @@
 /*   By: msedeno- <msedeno-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/25 19:56:08 by msedeno-          #+#    #+#             */
-/*   Updated: 2026/02/12 15:40:05 by msedeno-         ###   ########.fr       */
+/*   Updated: 2026/03/03 18:33:38 by msedeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {

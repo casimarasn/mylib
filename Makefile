@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: msedeno- <msedeno-@student.42malaga.com    +#+  +:+       +#+         #
+#    By: msedeno- <msedeno-@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:54:30 by msedeno-          #+#    #+#              #
-#    Updated: 2026/02/17 00:12:05 by msedeno-         ###   ########.fr        #
+#    Updated: 2026/03/03 19:56:38 by msedeno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,11 +54,13 @@ SRC_PRINTF = printf/ft_printf.c printf/ft_print_char.c printf/ft_print_format.c 
 			printf/ft_print_hexdecma.c printf/ft_print_hexdecmi.c \
 			printf/ft_print_nbr.c printf/ft_print_percent.c \
 			printf/ft_print_pointer.c printf/ft_print_string.c \
-			printf/ft_print_unsigned.c
+			printf/ft_print_unsigned.c printf/ft_fprintf.c \
+			printf/ft_hex_control_fd.c
 
 # Put
 SRC_PUT = put/ft_putchar_fd.c put/ft_putendl_fd.c \
-			put/ft_putnbr_fd.c put/ft_putstr_fd.c
+			put/ft_putnbr_fd.c put/ft_putstr_fd.c \
+			put/ft_putnbr_u_fd.c
 
 # String
 SRC_STR = string/ft_split.c string/ft_strchr.c string/ft_strdup.c \
@@ -73,6 +75,8 @@ SRCS = $(addprefix $(SRC_DIR)/, \
 		$(SRC_CONV) $(SRC_CTYPE) $(SRC_GNL) $(SRC_LISTS) \
 		$(SRC_MATH) $(SRC_MEM) $(SRC_PRINTF) $(SRC_PUT) $(SRC_STR))
 
+TOTAL_FILES = $(words $(SRCS))
+
 # Object generation (Mirror directory structure)
 OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 
@@ -81,13 +85,20 @@ OBJS = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRCS))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(NAME) $(OBJS)
-	@echo "Library $(NAME) created."
+	@$(AR) $(NAME) $(OBJS)
+	@echo "✅Library $(NAME) created."
 
 # Compilation rule that creates the obj directory if it doesn't exist
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	@count=$$(find $(OBJ_DIR) -name '*.o' | wc -l); \
+	percent=$$((count * 100 / $(TOTAL_FILES))); \
+	printf "\r\033[K["; \
+	for i in $$(seq 1 $$(($$percent / 5))); do printf "="; done; \
+	printf ">"; \
+	for i in $$(seq 1 $$((20 - $$percent / 5))); do printf " "; done; \
+	printf "] %d%%" $$percent
 
 clean:
 	$(RM) $(OBJ_DIR)

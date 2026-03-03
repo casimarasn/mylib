@@ -6,13 +6,13 @@
 /*   By: msedeno- <msedeno-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 00:28:05 by casimarasn        #+#    #+#             */
-/*   Updated: 2026/02/12 15:39:47 by msedeno-         ###   ########.fr       */
+/*   Updated: 2026/03/03 15:22:56 by msedeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, s, ft_strlen(s));
+	return (write(fd, s, ft_strlen(s)));
 }

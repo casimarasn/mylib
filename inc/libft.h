@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: msedeno- <msedeno-@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: msedeno- <msedeno-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:06:10 by msedeno-          #+#    #+#             */
-/*   Updated: 2026/02/17 00:23:28 by msedeno-         ###   ########.fr       */
+/*   Updated: 2026/03/03 18:31:32 by msedeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -289,6 +289,14 @@ double		ft_atod(const char *s, t_atod *atod);
  */
 char		*ft_itoa_base(int n, const char *base);
 
+/**
+ * @brief 
+ * 
+ * @param nptr 
+ * @return long int 
+ */
+long int	ft_atol(const char *nptr);
+
 
 /* ========================================== */
 /*               MATH                         */
@@ -325,7 +333,7 @@ int			*ft_range(int start, int end);
 /**
  * @brief Outputs the character 'c' to the given file descriptor.
  */
-void		ft_putchar_fd(char c, int fd);
+int			ft_putchar_fd(char c, int fd);
 
 /**
  * @brief Outputs the string 's' to the given file descriptor,
@@ -336,12 +344,23 @@ void		ft_putendl_fd(char *s, int fd);
 /**
  * @brief Outputs the integer 'n' to the given file descriptor.
  */
-void		ft_putnbr_fd(int n, int fd);
+int			ft_putnbr_fd(int n, int fd);
+
+int			ft_putnbr_u_fd(long int n, int fd);
 
 /**
  * @brief Outputs the string 's' to the given file descriptor.
  */
-void		ft_putstr_fd(char *s, int fd);
+int			ft_putstr_fd(char *s, int fd);
+
+int			puthex_p_fd(unsigned long long num, int fd);
+
+int			puthex_lower_fd(unsigned long long num, int fd);
+
+int			puthex_upper_fd(unsigned long long num, int fd);
+
+
+
 
 /* ========================================== */
 /*               LISTS                        */
@@ -463,5 +482,15 @@ int			ft_print_percent(void);
  * @brief Parses formatting flags. Helper for ft_printf.
  */
 int			ft_print_format(va_list args, char c);
+
+/**
+ * @brief 
+ * 
+ * @param fd 
+ * @param s 
+ * @param ... 
+ * @return int 
+ */
+int			ft_fprintf(int fd, char const *s, ...);
 
 #endif
