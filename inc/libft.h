@@ -6,7 +6,7 @@
 /*   By: msedeno- <msedeno-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 13:06:10 by msedeno-          #+#    #+#             */
-/*   Updated: 2026/03/03 18:31:32 by msedeno-         ###   ########.fr       */
+/*   Updated: 2026/03/11 13:35:55 by msedeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -297,6 +297,13 @@ char		*ft_itoa_base(int n, const char *base);
  */
 long int	ft_atol(const char *nptr);
 
+/**
+ * @brief 
+ * 
+ * @param n 
+ * @return int 
+ */
+int			ft_abs(int n);
 
 /* ========================================== */
 /*               MATH                         */

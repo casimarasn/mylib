@@ -6,7 +6,7 @@
 #    By: msedeno- <msedeno-@student.42malaga.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/24 11:54:30 by msedeno-          #+#    #+#              #
-#    Updated: 2026/03/03 19:56:38 by msedeno-         ###   ########.fr        #
+#    Updated: 2026/03/11 13:37:00 by msedeno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ INCLUDES    = -I$(INC_DIR)
 
 # Conversions
 SRC_CONV = conversions/ft_atoi.c conversions/ft_atoi_strict.c \
-		conversions/ft_itoa.c conversions/atod.c
+		conversions/ft_itoa.c conversions/atod.c conversions/ft_abs.c 
 
 # Ctype
 SRC_CTYPE = ctype/ft_isalnum.c ctype/ft_isalpha.c ctype/ft_isascii.c \
